@@ -8,6 +8,7 @@ import org.jboss.errai.bus.client.api.RemoteCallback;
 import org.jboss.errai.enterprise.client.jaxrs.api.RestClient;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 
+import com.test.restserver.RESTChildObject;
 import com.test.restserver.RESTObject;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -26,12 +27,12 @@ public class App
 {
 	private static final String REST_SERVER = "http://localhost:8080/TestRESTServer/rest";
 
-	final RemoteCallback<RESTObject> callback = new RemoteCallback<RESTObject>()
+	final RemoteCallback<RESTObject<RESTChildObject>> callback = new RemoteCallback<RESTObject<RESTChildObject>>()
 	{
 		@Override
-		public void callback(final RESTObject restObject)
+		public void callback(final RESTObject<RESTChildObject> restObject)
 		{
-			Window.alert("Success! Value is " + restObject.getValue());
+			Window.alert("Success!");
 		}
 	};
 	
@@ -40,7 +41,7 @@ public class App
 		@Override
 		public void callback(final String restObject)
 		{
-			Window.alert("Success! Value is " + restObject);
+			Window.alert("Success!");
 		}
 	};
 
@@ -69,7 +70,6 @@ public class App
 			public void onClick(ClickEvent clickEvent)
 			{
 				final REST restMethod = RestClient.create(REST.class, callback, errorCallback);
-				//final RESTTwo restMethod = RestClient.create(RESTTwo.class, stringCallback, errorCallback);
 				restMethod.printMessage();
 			}
 		});
