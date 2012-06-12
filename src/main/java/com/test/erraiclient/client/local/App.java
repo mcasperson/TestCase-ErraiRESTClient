@@ -68,8 +68,8 @@ public class App
 			@Override
 			public void onClick(ClickEvent clickEvent)
 			{
-				//final REST restMethod = RestClient.create(REST.class, callback, errorCallback);
-				final RESTTwo restMethod = RestClient.create(RESTTwo.class, stringCallback, errorCallback);
+				final REST restMethod = RestClient.create(REST.class, callback, errorCallback);
+				//final RESTTwo restMethod = RestClient.create(RESTTwo.class, stringCallback, errorCallback);
 				restMethod.printMessage();
 			}
 		});
