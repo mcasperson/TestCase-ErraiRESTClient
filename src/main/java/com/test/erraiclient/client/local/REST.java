@@ -7,6 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.test.restserver.RESTChildObject;
+import com.test.restserver.RESTGrandchildObject;
 import com.test.restserver.RESTObject;
 
 @Path("/")
@@ -17,5 +18,5 @@ public interface REST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(
 	{ "*" })
-	public RESTObject<RESTChildObject> printMessage();
+	public RESTObject<RESTChildObject<RESTGrandchildObject>> printMessage();
 }

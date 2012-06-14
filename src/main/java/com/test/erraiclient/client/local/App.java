@@ -27,10 +27,10 @@ public class App
 {
 	private static final String REST_SERVER = "http://localhost:8080/TestRESTServer/rest";
 
-	final RemoteCallback<RESTObject<RESTChildObject>> callback = new RemoteCallback<RESTObject<RESTChildObject>>()
+	final RemoteCallback<RESTObject<RESTChildObject<Integer>>> callback = new RemoteCallback<RESTObject<RESTChildObject<Integer>>>()
 	{
 		@Override
-		public void callback(final RESTObject<RESTChildObject> restObject)
+		public void callback(final RESTObject<RESTChildObject<Integer>> restObject)
 		{
 			Window.alert("Success!");
 		}
