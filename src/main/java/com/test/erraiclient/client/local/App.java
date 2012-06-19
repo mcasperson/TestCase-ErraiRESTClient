@@ -8,14 +8,12 @@ import org.jboss.errai.bus.client.api.RemoteCallback;
 import org.jboss.errai.enterprise.client.jaxrs.api.RestClient;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 
-import com.test.restserver.RESTChildObject;
-import com.test.restserver.RESTObject;
-
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.test.restserver.RESTObject;
 
 /**
  * Example code showing how to use Errai-JAXRS.
@@ -27,10 +25,10 @@ public class App
 {
 	private static final String REST_SERVER = "http://localhost:8080/TestRESTServer/rest";
 
-	final RemoteCallback<RESTObject<RESTChildObject<Integer>>> callback = new RemoteCallback<RESTObject<RESTChildObject<Integer>>>()
+	final RemoteCallback<RESTObject> callback = new RemoteCallback<RESTObject>()
 	{
 		@Override
-		public void callback(final RESTObject<RESTChildObject<Integer>> restObject)
+		public void callback(final RESTObject restObject)
 		{
 			Window.alert("Success!");
 		}
@@ -41,6 +39,7 @@ public class App
 		@Override
 		public void callback(final String restObject)
 		{
+			System.out.println(restObject);
 			Window.alert("Success!");
 		}
 	};

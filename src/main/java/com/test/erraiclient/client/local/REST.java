@@ -18,5 +18,8 @@ public interface REST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(
 	{ "*" })
-	public RESTObject<RESTChildObject<RESTGrandchildObject>> printMessage();
+	public RESTObject printMessage();
+	
+	// Uncomment this line to see the JSON String being returned by the server
+	//public String printMessage();
 }
